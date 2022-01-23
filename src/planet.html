@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+     <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" 
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css"
+    integrity="sha512-BnbUDfEUfV0Slx6TunuB042k9tuKe3xrD6q4mg5Ed72LTgzDIcLPxg6yI2gcMFRyomt+yJJxE+zJwNmxki6/RA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <link rel="shortcut icon" href="./img&audio/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles/planet.css">
+    
+      <title>Marija Gavrilova | Web Developer</title>
+      </head>
+<body>
+  
+
+<nav class="menu">
+  <input class="menu-toggler" type="checkbox">
+  <label for="menu-toggler"></label>
+  <ul>
+    <li class="menu-item">
+      <a href="projects.html">PROJECTS</a>
+    </li>
+    <li class="menu-item">
+      <a href="./planet.html">MY STORY</a>
+    </li>
+    <li class="menu-item">
+      <a href="./abilities.html">ABILITIES</a>
+    </li>
+    <li class="menu-item">
+      <a href="./education.html">EDUCATION</a>
+    </li>
+    <li class="menu-item">
+      <a href="./contact.html">CONTACT</a>
+    </li>
+    
+  </ul>
+</nav>
+
+<div id="cursor"></div>
+
+
+
+
+
+
+
+    <img class="object" src="./img&audio/sun.png" alt="sun" id="sun">
+    <img class="object planet" src="./img&audio/mercury.png" alt="mercur" id="mercury">
+    <img class="object planet" src="./img&audio/venus.png" alt="venus" id="venus">
+    <img class="object planet" src="./img&audio/earth.png" alt="earth" id="earth">
+    <img class="object planet" src="./img&audio/jupiter.png" alt="jupiter" id="jupiter">
+    <img class="object planet" src="./img&audio/saturn.png" alt="saturn" id="saturn">
+    <img class="object planet" src="./img&audio/uranus.png" alt="utan" id="uranus">
+    <img class="object planet" src="./img&audio/neptune.png" alt="neptun" id="neptune">
+    <div class="object" id="moon"></div>
+  
+    <div class="object p-orbit"></div>
+    <div class="object p-orbit"></div>
+    <div class="object p-orbit"></div>
+    <div class="object p-orbit"></div>
+    <div class="object p-orbit"></div>
+    <div class="object p-orbit"></div>
+    <div class="object p-orbit"></div>
+    <div class="object p-orbit"></div>
+    <div class="object" id="m-orbit"></div>
+  
+    <img src="./img&audio/asteroid.png" class="object" alt="belt" id="belt">
+    
+    <div id="world"></div>
+    <div class="two">
+      <div class="wrapper">
+        <div class="static-txt">I'm a</div>
+        <ul class="dynamic-txts">
+          <li><span>Developer</span></li>
+          <li><span>Designer</span></li>
+          <li><span>Freelancer</span></li>
+        </ul>
+      </div>
+    </div> 
+
+    <h1>Marija Gavrilova</h1> <a class="fpage" href="index.html"><img class="intro" src="./img&audio/Star.svg" alt="star"> </a> 
+      <div class="marija">
+           
+            <img src="./img&audio/thumbnail (1).jpeg" alt="me">
+       <p> <span> &nbsp;&nbsp;&nbsp;" Welcome in my Web World.</span>  I am <span>Marija </span> and <span>NICE TO MEET YOU.</span> <br> I hope you will enjoy in my Portfolio. <br> I am born in Macedonia. There I studied and worked in Police 7 Years. <br> Currently, I am in Frankfurt, Germany. I am new in the IT- World but that doesn't mean that I can not build myself till Senior Experience. <br>  <span>Step by Step - Everything is possible. </span> <br> I love positive energy and people with a smile on their faces.
+        If you have one on your face, Feel free to - <span>CONTACT ME.</span> "   </p>
+
+      </div>
+      <div id="stars"></div>
+      <div id="stars2"></div>
+      <div id="stars3"></div>
+      <div class="progress-bar" style="--width: 35" data-label="In Progress..."></div>
+      <div class="succsses"><img src="./img&audio/succses.jpg" alt="quoute"></div>
+
+      
+   
+
+
+
+    <script>
+        const planets = document.querySelectorAll('.planet')
+const p_radii = [22,33,50,70,112,138,165,190]
+let p_radians = new Array(8).fill(0)
+const p_velocities = [1.607, 1.174,1,0.802, 0.434, 0.323, 0.228, 0.182]
+
+const moon = document.querySelector('#moon')
+const m_radius = 8
+let m_radians = 0
+const m_velocity = 10
+
+const p_orbits = document.querySelectorAll('.p-orbit')
+const m_orbit = document.querySelector('#m-orbit')
+
+p_orbits.forEach((p_orbit, index)=>{
+  p_orbit.style.height = `${p_radii[index]}vmin`
+  p_orbit.style.width = `${p_radii[index]}vmin`
+})
+
+setInterval( ()=> {
+  planets.forEach( (planet, index)=>{
+    planet.style.left = `${Math.cos(p_radians[index]) * p_radii[index]}vmin`
+    planet.style.top = `${Math.sin(p_radians[index]) * p_radii[index]}vmin`
+    p_radians[index] += p_velocities[index] * 0.02
+  })
+
+  moon.style.left = `${earthX() + (Math.cos(m_radians) * m_radius )}vmin`
+  moon.style.top = `${earthY() + (Math.sin(m_radians) * m_radius )}vmin`
+  m_radians += m_velocity * 0.02
+
+  m_orbit.style.left = `${earthX()}vmin`
+  m_orbit.style.top = `${earthY()}vmin`
+}, 1000/60)
+
+function earthX(){
+  return Number( planets[2].style.left.split('vmin')[0] )
+}
+
+function earthY(){
+  return Number( planets[2].style.top.split('vmin')[0] )
+}
+
+const progressBar = document.getElementsByClassName('progress-bar')[0]
+setInterval(() => {
+   const computedStyle = getComputedStyle(progressBar)
+   const width = parseFloat(computedStyle.getPropertyValue('--width')) || 0
+   progressBar.style.setProperty('--width', width + .1)
+  }, 5)
+   
+  var cursor = document.getElementById('cursor');
+         document.onmousemove = function(e) {
+
+       
+         (e.pageX -25) +"px";
+         cursor.style.left = (e.pageX - 25) + "px";
+         cursor.style.top = (e.pageY -25) + "px";
+         cursor.style.display = "block";
+
+        }
+   
+
+
+
+
+    </script>
+</body> 
+</html>

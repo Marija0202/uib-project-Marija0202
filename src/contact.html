@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" 
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="shortcut icon" href="./img&audio/favicon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css"
+      integrity="sha512-BnbUDfEUfV0Slx6TunuB042k9tuKe3xrD6q4mg5Ed72LTgzDIcLPxg6yI2gcMFRyomt+yJJxE+zJwNmxki6/RA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+   <link rel="stylesheet" href="styles/contact.css">
+    <title>Marija Gavrilova | Web Developer</title>
+</head>
+<body>
+    <nav class="menu">
+        <input class="menu-toggler" type="checkbox">
+        <label for="menu-toggler"></label>
+        <ul>
+          <li class="menu-item">
+            <a href="projects.html">PROJECTS</a>
+          </li>
+          <li class="menu-item">
+            <a href="./planet.html">MY STORY</a>
+          </li>
+          <li class="menu-item">
+            <a href="./abilities.html">ABILITIES</a>
+          </li>
+          <li class="menu-item">
+            <a href="./education.html">EDUCATION</a>
+          </li>
+          <li class="menu-item">
+            <a href="./contact.html">CONTACT</a>
+          </li>
+          
+        </ul>
+      </nav>
+
+      <a class="fpage" href="index.html"><img class="intro" src="./img&audio/Star.svg" alt="star"> </a>
+      <div id="cursor"></div>
+
+    <div id="stars"></div>
+      <div id="stars2"></div>
+      <div id="stars3"></div>
+
+
+      <div class="all">
+      <form class="contact" method="POST">
+        <div class="message">
+           
+         <h4>Contact me</h4>
+         <p>I am here to answer any questions you may have about me. Feel free to contact me. </p>
+       
+        
+         <label for="name">NAME: <span>*</span> <br>
+      <input type="text" name="name" id="name" required>
+     </label>
+     <label for="email">EMAIL: <span>*</span> <br>
+       <input type="email" name="emaial" id="email" required>
+      </label>
+      <label for="textarea">Message:  <br>
+      <textarea name="textarea" id="textarea" cols="50" rows="15"></textarea>
+      </label> <br>
+       <button type="submit">SEND</button>
+    </div>
+    </form>
+      
+      <div class="myinfo">
+         
+         
+       <h5> <a href="http://macenceee@yahoo.com" target="_blank"> <i class="fas fa-envelope-open-text"></i> macenceee@yahoo.com </a></h5>
+
+      <h5> <a href="https://www.linkedin.com/in/marija-gavrilova-3b2397225/" target="_blank"> <i class="fab fa-linkedin"></i> Linkedin  </a>  </h5> 
+   
+      
+      <h5>  <a href="https://codepen.io/marija02" target="_blank"><i class="fab fa-codepen"></i> Codepen </a></h5> 
+      
+      
+        
+        
+    </div>
+  </div>
+    
+
+
+
+<script>
+    var cursor = document.getElementById('cursor');
+    document.onmousemove = function(e) {
+
+  
+    (e.pageX -25) +"px";
+    cursor.style.left = (e.pageX - 25) + "px";
+    cursor.style.top = (e.pageY -25) + "px";
+    cursor.style.display = "block";
+
+   }
+ </script>
+
+
+    
+</body>
+</html>

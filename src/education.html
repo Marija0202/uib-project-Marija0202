@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" 
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="shortcut icon" href="./img&audio/favicon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css"
+      integrity="sha512-BnbUDfEUfV0Slx6TunuB042k9tuKe3xrD6q4mg5Ed72LTgzDIcLPxg6yI2gcMFRyomt+yJJxE+zJwNmxki6/RA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+   <link rel="stylesheet" href="styles/education.css">
+    <title>Marija Gavrilova | Web Developer</title>
+</head>
+<body>
+    <nav class="menu">
+        <input class="menu-toggler" type="checkbox">
+        <label for="menu-toggler"></label>
+        <ul>
+          <li class="menu-item">
+            <a href="projects.html">PROJECTS</a>
+          </li>
+          <li class="menu-item">
+            <a href="./planet.html">MY STORY</a>
+          </li>
+          <li class="menu-item">
+            <a href="./abilities.html">ABILITIES</a>
+          </li>
+          <li class="menu-item">
+            <a href="./education.html">EDUCATION</a>
+          </li>
+          <li class="menu-item">
+            <a href="./contact.html">CONTACT</a>
+          </li>
+          
+        </ul>
+      </nav>
+      <div id="cursor"></div>
+
+    <div id="stars"></div>
+      <div id="stars2"></div>
+      <div id="stars3"></div>
+
+      <a class="fpage" href="index.html"><img class="intro" src="./img&audio/Star.svg" alt="star"> </a>
+      <h2>Education  <i class="fas fa-user-graduate"></i></h2>
+      
+    
+    
+      <ul class="education">
+        <li> <span class="level">CERTIFICATE</span>  <a href="#">- Web Development - DCI - Remote Learning - </a> <span class="year">2021 - CURRENT</span> </li>
+        <li> <span class="level">B1 CERTIFICATE</span> <a href="#">- VHS - Frankfurt, Germany - </a> <span class="year">2018 - 2020</span> </li>
+        <li> <span class="level"> SPECIALIZATION </span> <a href="#">- Management for Human resource - Skopje, Macedonia - </a>  <span class="year">2014 - 2015</span></li>
+        <li><span class="level">DIPLOMA</span> <a href="#">- The University of Law: FON - Skopje, Macedonia - </a> <span class="year">2005 - 2009</span></li>
+      </ul>
+    
+  
+
+
+
+      <script>
+        var cursor = document.getElementById('cursor');
+        document.onmousemove = function(e) {
+
+      
+        (e.pageX -25) +"px";
+        cursor.style.left = (e.pageX - 25) + "px";
+        cursor.style.top = (e.pageY -25) + "px";
+        cursor.style.display = "block";
+
+       }
+     </script>
+
+    
+</body>
+</html>

@@ -1,0 +1,1072 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #222;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+body.on {
+  background: radial-gradient(#555, #111);
+}
+
+.bulb {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  background: #444;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+body.on .bulb {
+  background: #fff;
+  box-shadow: 0 0 50px #fff, 0 0 100px #fff, 0 0 135px #fff;
+}
+
+.bulb::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: 22.5px;
+  width: 35px;
+  height: 80px;
+  background: #444;
+  border-top: 30px solid #000;
+  border-radius: 10px;
+}
+
+body.on .bulb::before {
+  background: #fff;
+}
+
+body.on .bulb::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
+  background: #fff;
+  border: radius 50%;
+  filter: blur(40px);
+}
+
+.bulb span:nth-child(1) {
+  position: absolute;
+  top: -16px;
+  left: -4px;
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  transform: rotate(342deg);
+  border-bottom-right-radius: 40px;
+  box-shadow: 20px 20px 0 10px #444;
+}
+
+body.on .bulb span:nth-child(1) {
+  box-shadow: 20px 20px 0 10px #fff;
+}
+
+.bulb span:nth-child(2) {
+  position: absolute;
+  top: -16px;
+  right: -4px;
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  transform: rotate(17deg);
+  border-bottom-left-radius: 40px;
+  box-shadow: -20px 20px 0 10px #444;
+}
+
+body.on .bulb span:nth-child(2) {
+  box-shadow: -20px 20px 0 10px #fff;
+}
+
+.wire {
+  position: absolute;
+  left: calc(50% - 2px);
+  bottom: 50%;
+  width: 4px;
+  height: 60vh;
+  background: #000;
+  z-index: 1;
+}
+
+.switch {
+  position: absolute;
+  bottom: 650px;
+  right: 250px;
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(#eee, #ccc, #eee);
+  border: 3px solid #000;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body.on .switch {
+  visibility: hidden;
+}
+
+.switch .btn {
+  position: relative;
+  width: 50px;
+  height: 80px;
+  background: linear-gradient(#777, #fff, #777);
+  border-radius: 6px;
+  border: 2px solid #000;
+  cursor: pointer;
+}
+
+.switch .btn::before {
+  content: "";
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 85%;
+  background: linear-gradient(#fff, #fff);
+  border-radius: 4px;
+}
+
+.on .switch .btn::before {
+  top: 15%;
+}
+
+#audio {
+  display: none;
+}
+
+#finger {
+  position: absolute;
+  right: 300px;
+  bottom: 55vh;
+  font-size: 5rem;
+  color: #e7dedb;
+  animation: finger 1.5s 3.5s alternate infinite;
+  opacity: 0;
+}
+
+@keyframes finger {
+  from {
+    transform: translateY(-90px);
+    opacity: 0.9;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 0.3;
+  }
+}
+body.on #finger {
+  visibility: hidden;
+}
+
+.fknock {
+  position: absolute;
+  left: -210px;
+}
+
+.fknock > img {
+  position: absolute;
+  display: block;
+  bottom: -160px;
+  width: 400px;
+  z-index: 49000;
+  transform-origin: bottom right;
+  animation: doorknock 900ms 2;
+  animation-direction: alternate-reverse;
+  animation-fill-mode: forwards;
+}
+
+body.on .fknock > img {
+  visibility: hidden;
+  animation-play-state: paused;
+}
+
+@keyframes doorknock {
+  from {
+    transform: perspective(700px) rotate(-20deg);
+  }
+  25% {
+    transform: perspective(700px) rotate(10deg);
+  }
+  50% {
+    transform: perspective(700px) rotate(-30deg);
+  }
+  75% {
+    transform: perspective(700px) rotate(20deg);
+  }
+  100% {
+    transform: translateX(-300px);
+  }
+}
+.stage {
+  position: absolute;
+  top: 350px;
+  left: 600px;
+  font-size: 7rem;
+  color: #b3aaaa;
+  z-index: 1;
+  visibility: hidden;
+}
+
+body.on .stage {
+  visibility: visible;
+}
+
+.stage > i:first-child {
+  position: absolute;
+  top: -140px;
+  right: 250px;
+  animation: settings 800ms 1.7s 4 alternate-reverse forwards;
+  animation-play-state: paused;
+}
+
+.stage > i:nth-child(2) {
+  position: absolute;
+  top: -90px;
+  right: 160px;
+  transform: rotate(31deg);
+  animation: settings 800ms 1.7s 4 alternate-reverse forwards;
+  animation-play-state: paused;
+}
+
+.stage > i:nth-child(3) {
+  position: absolute;
+  top: -90px;
+  right: 337px;
+  transform: rotate(30deg);
+  animation: settings 800ms 6 alternate-reverse forwards;
+  animation-play-state: paused;
+}
+
+body.on .stage > i:first-child {
+  animation-play-state: running;
+}
+
+body.on i:nth-child(2) {
+  animation-play-state: running;
+}
+
+body.on i:nth-child(3) {
+  animation-play-state: running;
+}
+
+@keyframes settings {
+  from {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(45deg);
+  }
+  50% {
+    transform: rotate(90deg);
+  }
+  75% {
+    transform: rotate(135%);
+  }
+  100% {
+    transform: rotate(180deg) scale(0.2);
+  }
+}
+.button-3d {
+  position: absolute;
+  left: 8vw;
+  top: 23vh;
+  width: 400px;
+  font-family: "Kalam", cursive;
+  font-family: "Source Code Pro", monospace;
+  font-weight: 900;
+  display: inline-block;
+  color: #020202;
+  font-size: 4rem;
+  text-decoration: none;
+  border-radius: 5px;
+  border: solid 1px #050505;
+  background: #D6CDCB;
+  text-align: center;
+  padding: 30px;
+  margin: 12px;
+  box-shadow: 0px 6px 0px #000000;
+  box-shadow: 0px 6px 0px #ffffff;
+  box-shadow: 0px 6px 0px #131212;
+  animation: start 1s 4s 1 forwards;
+  animation-play-state: paused;
+  z-index: 2;
+  opacity: 0;
+}
+
+.button-3d:active {
+  box-shadow: 0px 2px 0px #0f0e0e;
+  box-shadow: 0px 2px 0px #fff5f5;
+  box-shadow: 0px 2px 0px #fcfcfc;
+}
+
+body.on .button-3d {
+  animation-play-state: running;
+}
+
+@keyframes start {
+  from {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  to {
+    opacity: 1;
+  }
+}
+.door {
+  position: absolute;
+  filter: blur(0.3px);
+  z-index: 3;
+  top: 50px;
+  left: 0;
+}
+
+body.on img {
+  animation: open 2s linear forwards 1;
+  animation-timing-function: ease-in;
+}
+
+.room {
+  border: 2px solid rgba(0, 0, 0, 0.438);
+  position: absolute;
+  bottom: -9px;
+  left: 4px;
+  width: 100%;
+  height: 300px;
+  transform: skewX(-44deg);
+}
+
+.door > img {
+  background-color: #222;
+  box-shadow: 30px -5px 20px 10px grey;
+  bottom: -200px;
+  filter: blur(0.5px);
+  transform: perspective(300px) rotate(0deg);
+  position: absolute;
+  left: 150px;
+  top: 100px;
+  width: 300px;
+  transform-origin: left;
+}
+
+@keyframes open {
+  0% {
+    transform: perspective(300px) rotateY(0deg);
+    filter: blur(0.5px);
+  }
+  100% {
+    transform: perspective(300px) rotateY(90deg);
+  }
+}
+.knock {
+  position: absolute;
+  top: 200px;
+  left: 550px;
+  font-size: 2rem;
+  font-family: "Kalam", cursive;
+  font-family: "Source Code Pro", monospace;
+  color: #e7dedb;
+  animation: knockknock 400ms 200ms 4;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  transform-origin: bottom right;
+  display: block;
+  opacity: 0;
+}
+
+body.on .knock {
+  visibility: hidden;
+  animation-play-state: paused;
+}
+
+@keyframes knockknock {
+  from {
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.knock2 {
+  position: absolute;
+  top: 150px;
+  left: 460px;
+  opacity: 0;
+  font-size: 2rem;
+  font-family: "Kalam", cursive;
+  font-family: "Source Code Pro", monospace;
+  color: #e7dedb;
+  animation: knock2 700ms 2.3s;
+  animation-fill-mode: forwards;
+}
+
+body.on .knock2 {
+  visibility: hidden;
+}
+
+@keyframes knock2 {
+  to {
+    opacity: 1;
+    transform: translateX(120px) scale(1.3);
+  }
+}
+.welcome {
+  opacity: 0.7;
+  position: absolute;
+  top: 50px;
+  left: 420px;
+  font-weight: 900;
+  font-family: "Source Code Pro", monospace;
+  font-size: 5rem;
+  color: #f1e8e5;
+  filter: brightness(200%);
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  overflow: hidden;
+  visibility: hidden;
+  animation: welcome 3s 4s 1 forwards;
+  animation-play-state: paused;
+  z-index: 40000;
+}
+
+@keyframes welcome {
+  from {
+    transform: scale(0.9);
+    visibility: hidden;
+  }
+  to {
+    transform: scale(1.5);
+    visibility: visible;
+  }
+}
+.welcome > li:nth-child(1)::first-letter,
+.welcome > li:nth-child(4)::first-letter,
+.welcome > li:nth-child(5)::first-letter {
+  color: black;
+}
+
+.welcome::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 5.5rem;
+  width: 100%;
+  border-radius: 20%;
+  padding-bottom: 8px;
+  background: radial-gradient(#e2dddd, #111);
+  border-left: 2px solid whitesmoke;
+  animation: typing 2s steps(30) 1;
+  animation-delay: 4s;
+  animation-fill-mode: forwards;
+  animation-direction: reverse;
+  overflow: hidden;
+  visibility: hidden;
+  animation-play-state: paused;
+}
+
+body.on .welcome {
+  animation-play-state: running;
+}
+
+body.on .welcome::after {
+  animation-play-state: running;
+}
+
+@keyframes typing {
+  from {
+    visibility: visible;
+    left: 150%;
+  }
+}
+.wavy {
+  position: absolute;
+  right: 10px;
+}
+
+body.on .wavy {
+  visibility: hidden;
+}
+
+.wavy span {
+  display: inline-block;
+  font-family: "Kalam", cursive;
+  font-family: "Source Code Pro", monospace;
+  font-size: 4rem;
+  font-size: 3rem;
+  color: #e7dedb;
+  padding: 3px;
+  font-weight: 400;
+  animation: animate 1.5s 3.5s ease-in alternate infinite;
+  opacity: 0;
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(-50px) scale(1.1);
+    opacity: 0.9;
+    font-weight: 600;
+  }
+  20% {
+    transform: translateY(30px) scale(0.8);
+  }
+  100% {
+    transform: translate(0px) scale(0.4);
+    font-weight: 600;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1800px) {
+  body {
+    justify-items: auto;
+  }
+
+  .bulb {
+    top: -190px;
+  }
+
+  .wire {
+    left: calc(50% - 1px);
+    bottom: 70%;
+    width: 2px;
+  }
+
+  .switch {
+    top: 250px;
+    right: 30px;
+    width: 90px;
+    height: 90px;
+  }
+
+  .switch .btn {
+    width: 50px;
+    height: 50px;
+  }
+
+  #finger {
+    right: 60px;
+    top: 330px;
+    font-size: 2.4rem;
+  }
+
+  @keyframes finger {
+    from {
+      transform: translateY(30px);
+      opacity: 0.9;
+    }
+    to {
+      transform: translateY(0px);
+      opacity: 0.3;
+    }
+  }
+  .fknock {
+    left: -100px;
+    top: 230px;
+  }
+
+  .fknock > img {
+    width: 200px;
+    z-index: 10;
+  }
+
+  .stage {
+    top: 350px;
+    left: 230px;
+    font-size: 4rem;
+  }
+
+  .stage > i:first-child {
+    opacity: 0;
+    top: -40px;
+    right: 50px;
+  }
+
+  .stage > i:nth-child(2) {
+    opacity: 0;
+    top: -40px;
+    right: 0px;
+  }
+
+  .stage > i:nth-child(3) {
+    opacity: 0;
+    top: -80px;
+    right: 23px;
+  }
+
+  @keyframes settings {
+    from {
+      opacity: 1;
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(45deg);
+    }
+    50% {
+      transform: rotate(90deg);
+    }
+    75% {
+      transform: rotate(135%);
+    }
+    100% {
+      transform: rotate(180deg) scale(0.2);
+    }
+  }
+  .button-3d {
+    left: 30px;
+    top: 300px;
+    width: 200px;
+    font-size: 2rem;
+    text-decoration: none;
+    padding: 10px;
+  }
+
+  .room {
+    left: -400px;
+    top: 500px;
+    border-right: none;
+    width: 100%;
+    height: 850px;
+  }
+
+  .door > img {
+    left: 0px;
+    top: 90px;
+    width: 210px;
+  }
+
+  .knock {
+    top: 70px;
+    left: 20px;
+    font-size: 1.5rem;
+  }
+
+  .knock2 {
+    top: 70px;
+    left: -20px;
+    z-index: 10000;
+    font-size: 1.5rem;
+  }
+
+  .welcome {
+    top: 250px;
+    left: 180px;
+    font-size: 2rem;
+    gap: 10px;
+    z-index: 40000;
+  }
+
+  @keyframes welcome {
+    from {
+      transform: scale(0.9);
+      visibility: hidden;
+    }
+    to {
+      transform: scale(1.1);
+      visibility: visible;
+    }
+  }
+  .welcome::after {
+    height: 1rem;
+  }
+
+  .wavy {
+    top: 390px;
+    right: 10px;
+    z-index: 2000;
+  }
+
+  .wavy span {
+    font-size: 1.6rem;
+  }
+
+  @keyframes animate {
+    0% {
+      transform: translateY(-50px) scale(1.1);
+      opacity: 0.9;
+      font-weight: 600;
+    }
+    20% {
+      transform: translateY(40px) scale(1.5);
+    }
+    100% {
+      transform: translate(0px) scale(0.4);
+      font-weight: 600;
+    }
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  body {
+    justify-items: auto;
+  }
+
+  .bulb {
+    top: -200px;
+  }
+
+  .wire {
+    left: calc(50% - 1px);
+    bottom: 80%;
+    width: 2px;
+  }
+
+  .switch {
+    top: 250px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+  }
+
+  .switch .btn {
+    width: 30px;
+    height: 30px;
+  }
+
+  #finger {
+    right: 48px;
+    top: 300px;
+    font-size: 2rem;
+  }
+
+  @keyframes finger {
+    from {
+      transform: translateY(40px);
+      opacity: 0.9;
+    }
+    to {
+      transform: translateY(0px);
+      opacity: 0.3;
+    }
+  }
+  .fknock {
+    left: -50px;
+    top: 330px;
+  }
+
+  .fknock > img {
+    bottom: -80px;
+    width: 100px;
+    z-index: 10;
+  }
+
+  .stage {
+    top: 400px;
+    left: 130px;
+    font-size: 4rem;
+  }
+
+  .stage > i:first-child {
+    opacity: 0;
+    top: -40px;
+    right: 50px;
+  }
+
+  .stage > i:nth-child(2) {
+    opacity: 0;
+    top: -40px;
+    right: 0px;
+  }
+
+  .stage > i:nth-child(3) {
+    opacity: 0;
+    top: -80px;
+    right: 23px;
+  }
+
+  @keyframes settings {
+    from {
+      opacity: 1;
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(45deg);
+    }
+    50% {
+      transform: rotate(90deg);
+    }
+    75% {
+      transform: rotate(135%);
+    }
+    100% {
+      transform: rotate(180deg) scale(0.2);
+    }
+  }
+  .button-3d {
+    left: 10px;
+    top: 340px;
+    width: 200px;
+    font-size: 2rem;
+    text-decoration: none;
+    padding: 10px;
+  }
+
+  .room {
+    left: -400px;
+    top: 500px;
+    border-right: none;
+    width: 1000px;
+    height: 850px;
+  }
+
+  .door > img {
+    left: 0px;
+    top: 230px;
+    width: 130px;
+  }
+
+  .knock {
+    top: 230px;
+    left: 20px;
+    font-size: 1rem;
+  }
+
+  .knock2 {
+    top: 230px;
+    left: -90px;
+    z-index: 10000;
+    font-size: 1rem;
+  }
+
+  .welcome {
+    top: 250px;
+    left: 80px;
+    font-size: 1.5rem;
+    gap: 0.25rem;
+    z-index: 40000;
+  }
+
+  @keyframes welcome {
+    from {
+      transform: scale(0.9);
+      visibility: hidden;
+    }
+    to {
+      transform: scale(1.1);
+      visibility: visible;
+    }
+  }
+  .welcome::after {
+    height: 1rem;
+  }
+
+  .wavy {
+    top: 330px;
+    right: 10px;
+    z-index: 2000;
+  }
+
+  .wavy span {
+    font-size: 1rem;
+  }
+
+  @keyframes animate {
+    0% {
+      transform: translateY(-50px) scale(1.1);
+      opacity: 0.9;
+      font-weight: 600;
+    }
+    20% {
+      transform: translateY(40px) scale(1.5);
+    }
+    100% {
+      transform: translate(0px) scale(0.4);
+      font-weight: 600;
+    }
+  }
+}
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  .bulb {
+    top: -150px;
+  }
+
+  .wire {
+    left: calc(50% - 1px);
+    bottom: 70%;
+    width: 2px;
+  }
+
+  .switch {
+    top: 250px;
+    right: 40px;
+    width: 60px;
+    height: 60px;
+  }
+
+  .switch .btn {
+    width: 30px;
+    height: 30px;
+  }
+
+  #finger {
+    right: 55px;
+    top: 300px;
+    font-size: 2rem;
+  }
+
+  @keyframes finger {
+    from {
+      transform: translateY(40px);
+      opacity: 0.9;
+    }
+    to {
+      transform: translateY(0px);
+      opacity: 0.3;
+    }
+  }
+  .fknock {
+    left: -50px;
+    top: 330px;
+  }
+
+  .fknock > img {
+    bottom: -80px;
+    width: 100px;
+    z-index: 10;
+  }
+
+  .stage {
+    top: 470px;
+    left: 130px;
+    font-size: 3rem;
+  }
+
+  .stage > i:first-child {
+    opacity: 0;
+    top: -40px;
+    right: 50px;
+  }
+
+  .stage > i:nth-child(2) {
+    opacity: 0;
+    top: -40px;
+    right: 0px;
+  }
+
+  .stage > i:nth-child(3) {
+    opacity: 0;
+    top: -80px;
+    right: 23px;
+  }
+
+  @keyframes settings {
+    from {
+      opacity: 1;
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(45deg);
+    }
+    50% {
+      transform: rotate(90deg);
+    }
+    75% {
+      transform: rotate(135%);
+    }
+    100% {
+      transform: rotate(180deg) scale(0.2);
+    }
+  }
+  .button-3d {
+    left: 10px;
+    top: 390px;
+    max-width: 150px;
+    font-size: 1.5rem;
+    text-decoration: none;
+    padding: 10px;
+  }
+
+  .room {
+    left: -400px;
+    top: 500px;
+    border-right: none;
+    width: 1000px;
+    height: 850px;
+  }
+
+  .door > img {
+    left: 0px;
+    top: 230px;
+    width: 130px;
+  }
+
+  .knock {
+    top: 230px;
+    left: 20px;
+    font-size: 1rem;
+  }
+
+  .knock2 {
+    top: 250px;
+    left: -90px;
+    z-index: 10000;
+    font-size: 1rem;
+  }
+
+  .welcome {
+    top: 360px;
+    left: 50px;
+    max-width: 100%;
+    font-size: 1.5rem;
+    gap: 0.25rem;
+    z-index: 40000;
+  }
+
+  @keyframes welcome {
+    from {
+      transform: scale(0.9);
+      visibility: hidden;
+    }
+    to {
+      transform: scale(1.1);
+      visibility: visible;
+    }
+  }
+  .welcome::after {
+    height: 1rem;
+  }
+
+  .wavy {
+    top: 330px;
+    left: 50px;
+    z-index: 2000;
+  }
+
+  .wavy span {
+    font-size: 0.8rem;
+  }
+
+  @keyframes animate {
+    0% {
+      transform: translateY(-50px) scale(1);
+      opacity: 0.9;
+      font-weight: 600;
+    }
+    20% {
+      transform: translateY(40px) scale(1.5);
+    }
+    100% {
+      transform: translate(0px) scale(0.4);
+      font-weight: 600;
+    }
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

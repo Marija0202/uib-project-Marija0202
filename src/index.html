@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    
+    <meta name="viewport" 
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css"
+      integrity="sha512-BnbUDfEUfV0Slx6TunuB042k9tuKe3xrD6q4mg5Ed72LTgzDIcLPxg6yI2gcMFRyomt+yJJxE+zJwNmxki6/RA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="shortcut icon" href="./img&audio/favicon.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="styles/main.css" />
+
+   
+    <title>Marija Gavrilova | Web Developer</title>
+  </head>
+  <body>
+    <div class="light">
+      <div class="wire"></div>
+      <div class="bulb">
+        <span></span>
+        <span></span>
+      </div>
+      <div class="switch"><div class="btn"></div></div>
+      <i id="finger" class="fas fa-hand-point-up"></i>
+    </div>
+    <div class="fknock">
+      <img
+        src="img&audio/toppng.com-with-an-interactive-track-pad-and-a-built-in-microphone-hand-knocking-png-364x330.png"
+        alt="knockinghand"
+      />
+    </div>
+
+    <div class="wavy">
+      <span style="--i: 1">T</span>
+      <span style="--i: 2">U</span>
+      <span style="--i: 3">R</span>
+      <span style="--i: 4">N</span>
+      <span style="--i: 5"></span>
+      <span style="--i: 6">O</span>
+      <span style="--i: 7">N</span>
+      <span style="--i: 8"></span>
+      <span style="--i: 9">T</span>
+      <span style="--i: 10">H</span>
+      <span style="--i: 11">E</span>
+      <span style="--i: 12"></span>
+      <span style="--i: 13">L</span>
+      <span style="--i: 14">I</span>
+      <span style="--i: 15">G</span>
+      <span style="--i: 16">H</span>
+      <span style="--i: 17">T</span>
+      <span style="--i: 18">!</span>
+      <span style="--i: 19"></span>
+      <span style="--i: 20"></span>
+    </div>
+
+    <div class="stage">
+      <i class="fas fa-cog"></i>
+      <i class="fas fa-cog"></i>
+      <i class="fas fa-cog"></i>
+    </div>
+
+    <a href="./planet.html" class="button-3d">START</a>
+
+    <div class="door">
+      <img id="tuer" src="img&audio/door.svg" alt="door" width="100px" />
+    </div>
+    <div class="room"></div>
+    <span class="knock">Knock, Knock.</span>
+    <span class="knock2">"Who's there?"</span>
+    <ul class="welcome">
+      &lt;
+      <li>Welcome</li>
+      <li>in</li>
+      <li>my</li>
+      <li>Web</li>
+      <li>World&gt;</li>
+    </ul>
+    <embed style="visibility: hidden; position: absolute; left: -1000px;" src="img&audio/knock.mp3" type="audio/mp3" autostart="true" hidden="true">
+      <audio id="player" autoplay controls style="visibility: hidden; position: absolute; left: -1000px;"><source src="img&audio/knock.mp3" type="audio/mp3"></audio>
+        <audio id="audio" src="img&audio/clickme.mp3"></audio>
+       
+        
+
+    
+   
+    <script>
+      let btn = document.querySelector(".btn");
+      let body = document.querySelector("body");
+      let audio = document.querySelector("#audio");
+      btn.onclick = function () {
+        body.classList.toggle("on");
+        audio.play();
+      };
+     
+    
+   
+     
+  
+
+      
+       
+    </script>
+  </body>
+</html>
